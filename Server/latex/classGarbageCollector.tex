@@ -1,0 +1,191 @@
+\hypertarget{classGarbageCollector}{}\doxysection{Garbage\+Collector Class Reference}
+\label{classGarbageCollector}\index{GarbageCollector@{GarbageCollector}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGarbageCollector_a3fcc696f4272e1bf29db375671d82223}{$\sim$\+Garbage\+Collector}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Garbage Collector object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGarbageCollector_a18a7dc4de74a3d10f9964f5eb15caeca}{get\+Contador}} ()
+\begin{DoxyCompactList}\small\item\em Get the Contador object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_a76a071ef0aa013c25d973ca1d2d223d9}{set\+Contador}} (int cont)
+\begin{DoxyCompactList}\small\item\em Set the Contador object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlista}{lista}}$<$ \mbox{\hyperlink{classpackage}{package}} $\ast$ $>$ \mbox{\hyperlink{classGarbageCollector_a5d60d0f723b5a506952e199bd16081e6}{get\+\_\+\+Pkg\+\_\+\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the Pkg List object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_a0f67bef002a4e5ad1c237744b53a60cb}{add\+\_\+\+Pkg\+\_\+\+To\+\_\+\+List}} (\mbox{\hyperlink{classpackage}{package}} $\ast$to\+\_\+add)
+\begin{DoxyCompactList}\small\item\em adds a package to the list of packages \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlista}{lista}}$<$ \mbox{\hyperlink{classvsptrNT}{vsptr\+NT}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classGarbageCollector_a5ff9ace08837a346943b0ad66cb39849}{get\+\_\+\+Vsptr\+\_\+\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the Vsptr List object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_a70fa42087234b447d34531e42c8da598}{add\+\_\+\+Vsptr\+\_\+\+To\+\_\+\+List}} (\mbox{\hyperlink{classvsptrNT}{vsptr\+NT}} $\ast$to\+\_\+add, int client)
+\begin{DoxyCompactList}\small\item\em add a \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} to the pointer list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_afd5edae8095ef16f075ed0967da2f22a}{add\+\_\+ref}} (int id)
+\begin{DoxyCompactList}\small\item\em add a reference to the package with associated id \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_add9f0a738fc3ba2c1cca9e54cc62a41b}{lower\+\_\+ref}} (int id)
+\begin{DoxyCompactList}\small\item\em lower the reference to the package wit the associated id \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarbageCollector_a5eecd97185d738d5dd86734c071bd9c9}{delete\+\_\+pkgs}} ()
+\begin{DoxyCompactList}\small\item\em function that sweeps the lists and clears memory \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGarbageCollector}{Garbage\+Collector}} $\ast$ \mbox{\hyperlink{classGarbageCollector_a5c05b30b4a32bca1d16604cb85d7294b}{get\+Garbage\+Collector}} ()
+\begin{DoxyCompactList}\small\item\em Get the Garbage Collector object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGarbageCollector_a3fcc696f4272e1bf29db375671d82223}\label{classGarbageCollector_a3fcc696f4272e1bf29db375671d82223}} 
+\index{GarbageCollector@{GarbageCollector}!````~GarbageCollector@{$\sim$GarbageCollector}}
+\index{````~GarbageCollector@{$\sim$GarbageCollector}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{$\sim$GarbageCollector()}{~GarbageCollector()}}
+{\footnotesize\ttfamily Garbage\+Collector\+::$\sim$\+Garbage\+Collector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the Garbage Collector object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGarbageCollector_a0f67bef002a4e5ad1c237744b53a60cb}\label{classGarbageCollector_a0f67bef002a4e5ad1c237744b53a60cb}} 
+\index{GarbageCollector@{GarbageCollector}!add\_Pkg\_To\_List@{add\_Pkg\_To\_List}}
+\index{add\_Pkg\_To\_List@{add\_Pkg\_To\_List}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{add\_Pkg\_To\_List()}{add\_Pkg\_To\_List()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::add\+\_\+\+Pkg\+\_\+\+To\+\_\+\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpackage}{package}} $\ast$}]{to\+\_\+add }\end{DoxyParamCaption})}
+
+
+
+adds a package to the list of packages 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+add} & package pointer to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarbageCollector_afd5edae8095ef16f075ed0967da2f22a}\label{classGarbageCollector_afd5edae8095ef16f075ed0967da2f22a}} 
+\index{GarbageCollector@{GarbageCollector}!add\_ref@{add\_ref}}
+\index{add\_ref@{add\_ref}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{add\_ref()}{add\_ref()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::add\+\_\+ref (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+add a reference to the package with associated id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id to look by \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarbageCollector_a70fa42087234b447d34531e42c8da598}\label{classGarbageCollector_a70fa42087234b447d34531e42c8da598}} 
+\index{GarbageCollector@{GarbageCollector}!add\_Vsptr\_To\_List@{add\_Vsptr\_To\_List}}
+\index{add\_Vsptr\_To\_List@{add\_Vsptr\_To\_List}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{add\_Vsptr\_To\_List()}{add\_Vsptr\_To\_List()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::add\+\_\+\+Vsptr\+\_\+\+To\+\_\+\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvsptrNT}{vsptr\+NT}} $\ast$}]{to\+\_\+add,  }\item[{int}]{client }\end{DoxyParamCaption})}
+
+
+
+add a \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} to the pointer list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+add} & pointer to add \\
+\hline
+{\em client} & client to associate with \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarbageCollector_a5eecd97185d738d5dd86734c071bd9c9}\label{classGarbageCollector_a5eecd97185d738d5dd86734c071bd9c9}} 
+\index{GarbageCollector@{GarbageCollector}!delete\_pkgs@{delete\_pkgs}}
+\index{delete\_pkgs@{delete\_pkgs}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{delete\_pkgs()}{delete\_pkgs()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::delete\+\_\+pkgs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function that sweeps the lists and clears memory 
+
+\mbox{\Hypertarget{classGarbageCollector_a5d60d0f723b5a506952e199bd16081e6}\label{classGarbageCollector_a5d60d0f723b5a506952e199bd16081e6}} 
+\index{GarbageCollector@{GarbageCollector}!get\_Pkg\_List@{get\_Pkg\_List}}
+\index{get\_Pkg\_List@{get\_Pkg\_List}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{get\_Pkg\_List()}{get\_Pkg\_List()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classlista}{lista}}$<$ \mbox{\hyperlink{classpackage}{package}} $\ast$ $>$ Garbage\+Collector\+::get\+\_\+\+Pkg\+\_\+\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Pkg List object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classlista}{lista$<$package$\ast$$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarbageCollector_a5ff9ace08837a346943b0ad66cb39849}\label{classGarbageCollector_a5ff9ace08837a346943b0ad66cb39849}} 
+\index{GarbageCollector@{GarbageCollector}!get\_Vsptr\_List@{get\_Vsptr\_List}}
+\index{get\_Vsptr\_List@{get\_Vsptr\_List}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{get\_Vsptr\_List()}{get\_Vsptr\_List()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classlista}{lista}}$<$ \mbox{\hyperlink{classvsptrNT}{vsptr\+NT}} $\ast$ $>$ $\ast$ Garbage\+Collector\+::get\+\_\+\+Vsptr\+\_\+\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Vsptr List object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classlista}{lista$<$vsptr\+N\+T$\ast$$>$}}$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarbageCollector_a18a7dc4de74a3d10f9964f5eb15caeca}\label{classGarbageCollector_a18a7dc4de74a3d10f9964f5eb15caeca}} 
+\index{GarbageCollector@{GarbageCollector}!getContador@{getContador}}
+\index{getContador@{getContador}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{getContador()}{getContador()}}
+{\footnotesize\ttfamily int Garbage\+Collector\+::get\+Contador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Contador object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarbageCollector_a5c05b30b4a32bca1d16604cb85d7294b}\label{classGarbageCollector_a5c05b30b4a32bca1d16604cb85d7294b}} 
+\index{GarbageCollector@{GarbageCollector}!getGarbageCollector@{getGarbageCollector}}
+\index{getGarbageCollector@{getGarbageCollector}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{getGarbageCollector()}{getGarbageCollector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGarbageCollector}{Garbage\+Collector}} $\ast$ Garbage\+Collector\+::get\+Garbage\+Collector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Garbage Collector object. 
+
+\begin{DoxyReturn}{Returns}
+Garbage\+Collector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarbageCollector_add9f0a738fc3ba2c1cca9e54cc62a41b}\label{classGarbageCollector_add9f0a738fc3ba2c1cca9e54cc62a41b}} 
+\index{GarbageCollector@{GarbageCollector}!lower\_ref@{lower\_ref}}
+\index{lower\_ref@{lower\_ref}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{lower\_ref()}{lower\_ref()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::lower\+\_\+ref (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+lower the reference to the package wit the associated id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id to look by \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarbageCollector_a76a071ef0aa013c25d973ca1d2d223d9}\label{classGarbageCollector_a76a071ef0aa013c25d973ca1d2d223d9}} 
+\index{GarbageCollector@{GarbageCollector}!setContador@{setContador}}
+\index{setContador@{setContador}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{setContador()}{setContador()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::set\+Contador (\begin{DoxyParamCaption}\item[{int}]{cont }\end{DoxyParamCaption})}
+
+
+
+Set the Contador object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cont} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+garbage.\+hpp\item 
+garbage.\+cpp\end{DoxyCompactItemize}

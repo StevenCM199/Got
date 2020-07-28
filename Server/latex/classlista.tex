@@ -1,0 +1,232 @@
+\hypertarget{classlista}{}\doxysection{lista$<$ generic $>$ Class Template Reference}
+\label{classlista}\index{lista$<$ generic $>$@{lista$<$ generic $>$}}
+
+
+its a list that has an associated type.  
+
+
+
+
+{\ttfamily \#include $<$Linked\+\_\+\+List.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlista_a917c721418e91d682f658299715a72a2}\label{classlista_a917c721418e91d682f658299715a72a2}} 
+\mbox{\hyperlink{classlista_a917c721418e91d682f658299715a72a2}{lista}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new lista object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlista_aa6edad77586d3003ef70d6c6a8d39f3b}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em a function to validate if the list is empty \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlista_ab7c62a86b2c47ad42deaf67c1eda3a1f}{lista}} (generic data\+\_\+to\+\_\+add)
+\begin{DoxyCompactList}\small\item\em Construct a new lista object with its first element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlista_a2b69e5690fb3f25bc66205e4c85a5397}{insert}} (generic data\+\_\+to\+\_\+add)
+\begin{DoxyCompactList}\small\item\em a method to insert at the end of the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlista_ab8210abeba9d376e4e5c1940b01ff7b5}{delete\+\_\+by\+\_\+pos}} (int pos)
+\begin{DoxyCompactList}\small\item\em deletes a node in the position specified \end{DoxyCompactList}\item 
+generic \mbox{\hyperlink{classlista_a20d6c08a45a792a5ffb424d9b3aee905}{get\+\_\+data\+\_\+by\+\_\+pos}} (int pos)
+\begin{DoxyCompactList}\small\item\em Get the data by pos object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classlista_a6e296340451bc3cd3d86171e5eac740b}\label{classlista_a6e296340451bc3cd3d86171e5eac740b}} 
+void \mbox{\hyperlink{classlista_a6e296340451bc3cd3d86171e5eac740b}{print}} ()
+\begin{DoxyCompactList}\small\item\em prints out the elements of the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlista_ac874e3c86bd09510d8d9db13230f68eb}{insert}} (generic data\+\_\+to\+\_\+add, int pos)
+\begin{DoxyCompactList}\small\item\em insert a new node in the desired position, it can be placed at the head, end or even in the body of the list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classlista_a11d2d651ca325fab97e077d1382f9138}{get\+\_\+object\+\_\+counter}} ()
+\begin{DoxyCompactList}\small\item\em Get the object counter object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlista_afd46a56f50c908160f10fcb6ff529fad}{rewrite}} (generic new\+\_\+data, int pos)
+\begin{DoxyCompactList}\small\item\em rewrite data in specific pos \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlista_ab193724d1809f4977dec9310b8d28b01}{is\+\_\+\+End}} (int pos)
+\begin{DoxyCompactList}\small\item\em is\+\_\+\+End \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classlista_afec17570141b51ade6c77c25f0852ce8}\label{classlista_afec17570141b51ade6c77c25f0852ce8}} 
+void \mbox{\hyperlink{classlista_afec17570141b51ade6c77c25f0852ce8}{clear\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em clears list, deletes everything \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename generic$>$\newline
+class lista$<$ generic $>$}
+
+its a list that has an associated type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em generic,it} & represents a generic type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlista_ab7c62a86b2c47ad42deaf67c1eda3a1f}\label{classlista_ab7c62a86b2c47ad42deaf67c1eda3a1f}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!lista@{lista}}
+\index{lista@{lista}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{lista()}{lista()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+\mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::\mbox{\hyperlink{classlista}{lista}} (\begin{DoxyParamCaption}\item[{generic}]{data\+\_\+to\+\_\+add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new lista object with its first element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+to\+\_\+add} & data to be stored \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlista_ab8210abeba9d376e4e5c1940b01ff7b5}\label{classlista_ab8210abeba9d376e4e5c1940b01ff7b5}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!delete\_by\_pos@{delete\_by\_pos}}
+\index{delete\_by\_pos@{delete\_by\_pos}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{delete\_by\_pos()}{delete\_by\_pos()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+void \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::delete\+\_\+by\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+deletes a node in the position specified 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & position to eliminate \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em generic,it} & represents a generic type. \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classlista_a20d6c08a45a792a5ffb424d9b3aee905}\label{classlista_a20d6c08a45a792a5ffb424d9b3aee905}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!get\_data\_by\_pos@{get\_data\_by\_pos}}
+\index{get\_data\_by\_pos@{get\_data\_by\_pos}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{get\_data\_by\_pos()}{get\_data\_by\_pos()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+generic \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::get\+\_\+data\+\_\+by\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the data by pos object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em generic,it} & represents a generic type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & position of the data to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+generic, it returns the value stored in that position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlista_a11d2d651ca325fab97e077d1382f9138}\label{classlista_a11d2d651ca325fab97e077d1382f9138}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!get\_object\_counter@{get\_object\_counter}}
+\index{get\_object\_counter@{get\_object\_counter}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{get\_object\_counter()}{get\_object\_counter()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+int \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::get\+\_\+object\+\_\+counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the object counter object. 
+
+\begin{DoxyReturn}{Returns}
+int return the object\+\_\+counter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlista_a2b69e5690fb3f25bc66205e4c85a5397}\label{classlista_a2b69e5690fb3f25bc66205e4c85a5397}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!insert@{insert}}
+\index{insert@{insert}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+void \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::insert (\begin{DoxyParamCaption}\item[{generic}]{data\+\_\+to\+\_\+add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+a method to insert at the end of the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+to\+\_\+add} & data to add to list \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em generic,it} & represents a generic type. \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classlista_ac874e3c86bd09510d8d9db13230f68eb}\label{classlista_ac874e3c86bd09510d8d9db13230f68eb}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!insert@{insert}}
+\index{insert@{insert}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+void \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::insert (\begin{DoxyParamCaption}\item[{generic}]{data\+\_\+to\+\_\+add,  }\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert a new node in the desired position, it can be placed at the head, end or even in the body of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & postition to insert \\
+\hline
+{\em data\+\_\+to\+\_\+add} & data to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlista_ab193724d1809f4977dec9310b8d28b01}\label{classlista_ab193724d1809f4977dec9310b8d28b01}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!is\_End@{is\_End}}
+\index{is\_End@{is\_End}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{is\_End()}{is\_End()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+bool \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::is\+\_\+\+End (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+is\+\_\+\+End 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s the final pos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlista_aa6edad77586d3003ef70d6c6a8d39f3b}\label{classlista_aa6edad77586d3003ef70d6c6a8d39f3b}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+bool \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+a function to validate if the list is empty 
+
+\begin{DoxyReturn}{Returns}
+true if the list is empty 
+
+false if the list has atleast one element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlista_afd46a56f50c908160f10fcb6ff529fad}\label{classlista_afd46a56f50c908160f10fcb6ff529fad}} 
+\index{lista$<$ generic $>$@{lista$<$ generic $>$}!rewrite@{rewrite}}
+\index{rewrite@{rewrite}!lista$<$ generic $>$@{lista$<$ generic $>$}}
+\doxysubsubsection{\texorpdfstring{rewrite()}{rewrite()}}
+{\footnotesize\ttfamily template$<$typename generic $>$ \\
+void \mbox{\hyperlink{classlista}{lista}}$<$ generic $>$\+::rewrite (\begin{DoxyParamCaption}\item[{generic}]{new\+\_\+data,  }\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+rewrite data in specific pos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+data} & new data to chansge \\
+\hline
+{\em pos} & to change data from \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Linked\+\_\+\+List.\+hpp\end{DoxyCompactItemize}

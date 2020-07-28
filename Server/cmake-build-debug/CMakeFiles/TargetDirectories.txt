@@ -1,0 +1,4 @@
+/home/alvaov/Desktop/Proyecto_1_Datos2/Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alvaov/Desktop/Proyecto_1_Datos2/Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/alvaov/Desktop/Proyecto_1_Datos2/Server/cmake-build-debug/CMakeFiles/docs.dir
+/home/alvaov/Desktop/Proyecto_1_Datos2/Server/cmake-build-debug/CMakeFiles/Server.dir

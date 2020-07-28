@@ -1,0 +1,74 @@
+\hypertarget{classSocket__S}{}\doxysection{Socket\+\_\+S Class Reference}
+\label{classSocket__S}\index{Socket\_S@{Socket\_S}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocket__S_ac293c2f98383fcc7a47ca046b08f3153}\label{classSocket__S_ac293c2f98383fcc7a47ca046b08f3153}} 
+\mbox{\hyperlink{classSocket__S_ac293c2f98383fcc7a47ca046b08f3153}{Socket\+\_\+S}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSocket__S}{Socket\+\_\+S}} constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSocket__S_adc13d40af592ef098becf718ba11aa1e}{start}} (int \+\_\+port=54000, std\+::string \+\_\+ip=\char`\"{}0.\+0.\+0.\+0\char`\"{})
+\begin{DoxyCompactList}\small\item\em start the socket \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSocket__S_abf0ba1b74172d70d488b3e0efa99a5ba}{mark\+\_\+listening}} ()
+\begin{DoxyCompactList}\small\item\em mark socket to start listening \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSocket__S_a1910a711877612304e3110e93293e127}{data\+\_\+\+GC}} (int client)
+\begin{DoxyCompactList}\small\item\em get data of the garbage collector by client \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSocket__S_a1910a711877612304e3110e93293e127}\label{classSocket__S_a1910a711877612304e3110e93293e127}} 
+\index{Socket\_S@{Socket\_S}!data\_GC@{data\_GC}}
+\index{data\_GC@{data\_GC}!Socket\_S@{Socket\_S}}
+\doxysubsubsection{\texorpdfstring{data\_GC()}{data\_GC()}}
+{\footnotesize\ttfamily std\+::string Socket\+\_\+\+S\+::data\+\_\+\+GC (\begin{DoxyParamCaption}\item[{int}]{client }\end{DoxyParamCaption})}
+
+
+
+get data of the garbage collector by client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & id of client associated too \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string data from the Garbage Collector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSocket__S_abf0ba1b74172d70d488b3e0efa99a5ba}\label{classSocket__S_abf0ba1b74172d70d488b3e0efa99a5ba}} 
+\index{Socket\_S@{Socket\_S}!mark\_listening@{mark\_listening}}
+\index{mark\_listening@{mark\_listening}!Socket\_S@{Socket\_S}}
+\doxysubsubsection{\texorpdfstring{mark\_listening()}{mark\_listening()}}
+{\footnotesize\ttfamily int Socket\+\_\+\+S\+::mark\+\_\+listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+mark socket to start listening 
+
+\begin{DoxyReturn}{Returns}
+int identifier if evreything worked correctly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSocket__S_adc13d40af592ef098becf718ba11aa1e}\label{classSocket__S_adc13d40af592ef098becf718ba11aa1e}} 
+\index{Socket\_S@{Socket\_S}!start@{start}}
+\index{start@{start}!Socket\_S@{Socket\_S}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily int Socket\+\_\+\+S\+::start (\begin{DoxyParamCaption}\item[{int}]{\+\_\+port = {\ttfamily 54000},  }\item[{std\+::string}]{\+\_\+ip = {\ttfamily \char`\"{}0.0.0.0\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+start the socket 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+port} & port to bind to \\
+\hline
+{\em \+\_\+ip} & ip to start in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int identifier if evreything worked correctly 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+socket\+\_\+\+S.\+h\item 
+socket\+\_\+\+S.\+cpp\end{DoxyCompactItemize}

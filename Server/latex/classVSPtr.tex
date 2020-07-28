@@ -1,0 +1,230 @@
+\hypertarget{classVSPtr}{}\doxysection{V\+S\+Ptr$<$ T $>$ Class Template Reference}
+\label{classVSPtr}\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+
+
+derived class from \mbox{\hyperlink{classvsptrNT}{vsptr\+NT}}, stores a pointer of the data  
+
+
+
+
+{\ttfamily \#include $<$vsptr.\+hpp$>$}
+
+Inheritance diagram for V\+S\+Ptr$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classVSPtr}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}{$\sim$\+V\+S\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} object. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classVSPtr_a769b084abcc1725044d662b540a3344e}{operator\&}} ()
+\begin{DoxyCompactList}\small\item\em returns the data \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$ \mbox{\hyperlink{classVSPtr_a8d059dd9d09569c1f67ceaed23b57d99}{operator$\ast$}} ()
+\begin{DoxyCompactList}\small\item\em returns this same object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVSPtr_a21f2289f6bcf64b3ba53b2d6c50bdbd9}{operator=}} (T data\+Nueva)
+\begin{DoxyCompactList}\small\item\em asign a new value to the pointer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVSPtr_a1711ee9c8029734bcb71cef860080f59}{operator=}} (\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$ data\+Nueva)
+\begin{DoxyCompactList}\small\item\em asigns a new value to the pointer \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classVSPtr_a45e8c880ba6f2cee1afbdcc6787c3108}{ret\+\_\+\+Type}} ()
+\begin{DoxyCompactList}\small\item\em return the type of the pointer \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classVSPtr_afdd1693635d4b580716a8273c1c59e56}{ret\+\_\+\+Val}} ()
+\begin{DoxyCompactList}\small\item\em returns the value stored in data \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classVSPtr_a0c1d46b4419ce1c2bb44bdf4be5a547c}{ret\+\_\+\+Id}} ()
+\begin{DoxyCompactList}\small\item\em returns the id of the pointer \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classVSPtr_acff0b9b6d0a0970e0daf05e147502c7e}{ret\+\_\+\+Mem\+\_\+\+Addr}} ()
+\begin{DoxyCompactList}\small\item\em returns the memory address of the data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classVSPtr_a68a615dac5cced921e710b5e13eab273}{New}} (int client)
+\begin{DoxyCompactList}\small\item\em a way to instanciate \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class V\+S\+Ptr$<$ T $>$}
+
+derived class from \mbox{\hyperlink{classvsptrNT}{vsptr\+NT}}, stores a pointer of the data 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}\label{classVSPtr_a7f8fbb9a7047367f57bfc2f8fbf54a99}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!````~VSPtr@{$\sim$VSPtr}}
+\index{````~VSPtr@{$\sim$VSPtr}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$VSPtr()}{~VSPtr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVSPtr_a68a615dac5cced921e710b5e13eab273}\label{classVSPtr_a68a615dac5cced921e710b5e13eab273}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!New@{New}}
+\index{New@{New}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{New()}{New()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$T$>$$\ast$ \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::New (\begin{DoxyParamCaption}\item[{int}]{client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+a way to instanciate \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & client to instanciate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+S\+Ptr$<$\+T$>$$\ast$ pointer of the new \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVSPtr_a769b084abcc1725044d662b540a3344e}\label{classVSPtr_a769b084abcc1725044d662b540a3344e}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::operator\& (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the data 
+
+\begin{DoxyReturn}{Returns}
+T data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVSPtr_a8d059dd9d09569c1f67ceaed23b57d99}\label{classVSPtr_a8d059dd9d09569c1f67ceaed23b57d99}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$T$>$ \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns this same object 
+
+\begin{DoxyReturn}{Returns}
+V\+S\+Ptr$<$\+T$>$ this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVSPtr_a21f2289f6bcf64b3ba53b2d6c50bdbd9}\label{classVSPtr_a21f2289f6bcf64b3ba53b2d6c50bdbd9}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{T}]{data\+Nueva }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+asign a new value to the pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Nueva} & new data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVSPtr_a1711ee9c8029734bcb71cef860080f59}\label{classVSPtr_a1711ee9c8029734bcb71cef860080f59}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$}]{data\+Nueva }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+asigns a new value to the pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Nueva} & new pointer containing the data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVSPtr_a0c1d46b4419ce1c2bb44bdf4be5a547c}\label{classVSPtr_a0c1d46b4419ce1c2bb44bdf4be5a547c}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!ret\_Id@{ret\_Id}}
+\index{ret\_Id@{ret\_Id}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ret\_Id()}{ret\_Id()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::ret\+\_\+\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the id of the pointer 
+
+\begin{DoxyReturn}{Returns}
+std\+::string id in a string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classvsptrNT_a38af09a00fc3a746dca33ed976eb0dc7}{vsptr\+NT}}.
+
+\mbox{\Hypertarget{classVSPtr_acff0b9b6d0a0970e0daf05e147502c7e}\label{classVSPtr_acff0b9b6d0a0970e0daf05e147502c7e}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!ret\_Mem\_Addr@{ret\_Mem\_Addr}}
+\index{ret\_Mem\_Addr@{ret\_Mem\_Addr}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ret\_Mem\_Addr()}{ret\_Mem\_Addr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::ret\+\_\+\+Mem\+\_\+\+Addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the memory address of the data 
+
+\begin{DoxyReturn}{Returns}
+std\+::string the memory address in a string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classvsptrNT_a306ec40a2613be6048d53b8e83aa9a0f}{vsptr\+NT}}.
+
+\mbox{\Hypertarget{classVSPtr_a45e8c880ba6f2cee1afbdcc6787c3108}\label{classVSPtr_a45e8c880ba6f2cee1afbdcc6787c3108}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!ret\_Type@{ret\_Type}}
+\index{ret\_Type@{ret\_Type}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ret\_Type()}{ret\_Type()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::ret\+\_\+\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+return the type of the pointer 
+
+\begin{DoxyReturn}{Returns}
+std\+::string of type 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classvsptrNT_a9472bd7f53a6d75b7378237a00d7e7ca}{vsptr\+NT}}.
+
+\mbox{\Hypertarget{classVSPtr_afdd1693635d4b580716a8273c1c59e56}\label{classVSPtr_afdd1693635d4b580716a8273c1c59e56}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!ret\_Val@{ret\_Val}}
+\index{ret\_Val@{ret\_Val}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ret\_Val()}{ret\_Val()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classVSPtr}{V\+S\+Ptr}}$<$ T $>$\+::ret\+\_\+\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the value stored in data 
+
+\begin{DoxyReturn}{Returns}
+std\+::string data stored in data 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classvsptrNT_aca77d8822724401518ff0c87bd7947a0}{vsptr\+NT}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vsptr.\+hpp\end{DoxyCompactItemize}
