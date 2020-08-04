@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Server.dir/garbage.cpp.o CMakeFiles/Server.dir/main.cpp.o CMakeFiles/Server.dir/md5.cpp.o CMakeFiles/Server.dir/socket_S.cpp.o  -o Server  -pthread 
