@@ -4,12 +4,18 @@
 #include <winsock.h>
 #include <iostream>
 #include <fstream>
+#include "Linked_list.h"
 #pragma comment(lib, "ws2_32.lib")
+
+
 int main(){
+
+    Lista<std::fstream> listaArchivos = new Lista<std::fstream>();
+
     std::string command = ""; 
     // iniciar conexion http
 
-    /*WSADATA wsaData;
+    WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
         std::cout << "WSAStartup failed.\n";
         system("pause");
@@ -28,7 +34,7 @@ int main(){
         system("pause");
         return 1;
     }
-    std::cout << "Connected.\n";*/
+    std::cout << "Connected.\n";
 
     while(true){
         std::cout << "got "; 
@@ -66,6 +72,10 @@ int main(){
             if (commandArray->size() == 2) {
                 //Enviar post
 
+                char* header = "POST \init\commandArray[1] HTTP/1.1\r\n";
+                send(Socket, header, strlen(header), 0);
+
+
                 //Crear gotignore
                 std::ofstream MyFile("gotignore.txt");
                 MyFile.close();
@@ -88,10 +98,29 @@ int main(){
             std::cout << "got sync <file>: Recupera los cambios para un archivo en el servidor y lo sincroniza con el archivo en el cliente. \n";
         }
         else if(commandArray[0] == "add"){
-            
+            // lista de los archivos que se van a agregar
+            std::fstream file;
+            file.open("file.dat", std::ios::out | std::ios::in);
+
         }
         else if(commandArray[0] == "commit"){
-            
+            // for del tamaño de la lista:
+            char* header = "POST \commit HTTP/1.1\r\n"
+                "Host: 127.0.0.1\r\n"
+                "Content-Type: multipart/form-data; boundary=myboundary\r\n"
+                "--myboundary\r\n"
+                "Content-Type: application/octet-stream\r\n"
+                "Content-Disposition: form-data; name=\"myfile\"; filename=\"myfile.ext\"; modification-date= \"date\";\r\n"
+                "Content-Transfer-Encoding: 8bit\r\n"
+                "\r\n";
+            send(Socket, header, strlen(header), 0);
+
+            // while para recorrer el archivo 
+            // send the raw file bytes here...
+
+            char* footer = "\r\n"
+                "--myboundary--\r\n";
+            send(Socket, footer, strlen(footer), 0);
         }
         else if(commandArray[0] == "status"){
             

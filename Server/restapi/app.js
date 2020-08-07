@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
+var actualRepo = "" 
 
 app.use(morgan('combined'))
 
@@ -29,13 +30,13 @@ app.get("/", (req, res) => {
     res.send("Hello from root")
 })
 
-app.get("/users", (req, res) =>{
+/*app.get("/users", (req, res) =>{
     // responds with a json
     var user1 = {firstName: "Stephen", lastName: "Curry"}
     const user2 = {firstName: "Kevin", lastName: "Durant"}
     res.json([user1, user2])
     //res.send("Nodemon auto update")
-})
+})*/
 
 //POST request
 app.post('/', (req, res) =>{
