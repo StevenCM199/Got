@@ -1,0 +1,3 @@
+﻿  app.cpp
+C:\Users\allva\Desktop\Got\Cliente\Got\app.cpp(39,27): warning C4018: '<': no coinciden signed/unsigned
+  Got.vcxproj -> C:\Users\allva\Desktop\Got\Cliente\Debug\Got.exe
