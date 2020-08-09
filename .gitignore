@@ -21,10 +21,6 @@ Cliente/out/build/x64-Debug (predeterminado)/
 
 *.aps
 
-Cliente/Cliente/Cliente.vcxproj.filters
-
-Cliente/Cliente/Cliente.vcxproj.user
-
 Cliente/Cliente/Debug/App.obj
 
 Cliente/Cliente/Debug/vc142.idb
@@ -36,7 +32,3 @@ Cliente/Cliente/Debug/vc142.pdb
 Cliente/Debug/Cliente.ilk
 
 Cliente/Debug/Cliente.pdb
-
-ClienteOld/cliente/cliente/cliente.vcxproj.filters
-
-ClienteOld/cliente/cliente/cliente.vcxproj.user

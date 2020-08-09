@@ -10,7 +10,7 @@
 
 int main() {
 
-    lista<std::fstream>* listaArchivos = new lista<std::fstream>();
+    lista<std::fstream*>* listaArchivos = new lista<std::fstream*>();
     // std::cout << listaArchivos->size();
     std::string command = "";
     //iniciar conexion http
@@ -108,9 +108,9 @@ int main() {
                 std::cout << commandArray[1] << std::endl;
                 std::string archivo;
                 archivo = commandArray[1];
-                std::fstream file;
-                file.open(archivo, std::ios::out | std::ios::in);
-                // ERROR  listaArchivos->insert(file);
+                std::fstream* file = new std::fstream();
+                file->open(archivo, std::ios::out | std::ios::in);
+                listaArchivos->insert(file);
             }
         }
         else if (commandArray[0] == "commit") {
