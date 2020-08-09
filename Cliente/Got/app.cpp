@@ -1,16 +1,16 @@
 #include "app.h"
+#include "Linked_list.h"
 #include <stdio.h>
 #include <string>
 #include <winsock.h>
-#include <iostream>
 #include <fstream>
-#include "Linked_list.h"
+
 #pragma comment(lib, "ws2_32.lib")
 
 
 int main(){
 
-    Lista<std::fstream> listaArchivos = new Lista<std::fstream>();
+    lista<std::fstream>* listaArchivos = new lista<std::fstream>();
 
     std::string command = ""; 
     // iniciar conexion http
