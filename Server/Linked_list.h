@@ -246,6 +246,13 @@ public:
         }
     }
 
+    int size() {
+        int contador = 0;
+        for (int i = 0; i < object_counter; i++) {
+            contador += 1;
+        }
+        return contador; 
+    }
 };
 #endif //
 

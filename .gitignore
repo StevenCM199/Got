@@ -1,0 +1,20 @@
+
+Cliente/cliente/Release/
+
+.vs/Got/v16/
+
+.vs/
+
+*.vcxproj
+
+*.log
+
+*.lastbuildstate
+
+*.tlog
+
+Cliente/cliente/cliente/Release/
+
+Cliente/out/build/x64-Debug (predeterminado)/.cmake/api/v1/query/client-MicrosoftVS/
+
+Cliente/out/build/x64-Debug (predeterminado)/
