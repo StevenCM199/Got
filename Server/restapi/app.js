@@ -4,23 +4,20 @@ const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 var actualRepo = "" 
+var bodyparser = require('body-parser')
+
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'got',
+    password: '//contrasena'
+})
 
 app.use(morgan('combined'))
 
 app.get('/user/:id', (req, res) =>{
     console.log("Fetching user with id: " + req.params.id)
-
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        database: 'got'
-    })
-
-    connection.query("SELECT * FROM commit", (err, rows, fields) =>{
-        console.log("I think it works!")
-        res.json(rows)
-    })
-
     //res.end()
 })
 
@@ -39,8 +36,20 @@ app.get("/", (req, res) => {
 })*/
 
 //POST request
-app.post('/', (req, res) =>{
-    return res.send("Received a POST HTTP method")
+app.post('/init', (req, res) =>{
+    console.log("req: " + req + "\n");
+  
+    console.log("req.body: " + req.params.nombre + "\n");
+    var repo = req.query;
+
+    console.log("repo: " + repo + "\n");
+    connection.query("INSERT INTO repositorio (nombre) VALUES ('"+ repo +"')", (err, rows, fields) =>{
+        console.log("I think it works!")
+        if (err){
+            console.log(err);
+        }
+    })
+    return res.send("Se ha creado el repositorio")
 })
 
 //PUT request
