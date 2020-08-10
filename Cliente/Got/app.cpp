@@ -5,8 +5,10 @@
 #include <winsock.h>
 #include <fstream>
 #include <iostream>
+#include "Curl/include/curl/curl.h"
 
 #pragma comment(lib, "ws2_32.lib")
+
 
 
 int main(){
