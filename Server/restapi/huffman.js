@@ -1,5 +1,6 @@
 log = console.log.bind(console);
 
+//Constructor del arbol
 var Heap = function(fn) {
   this.fn = fn || function(e) {
     return e;
@@ -8,14 +9,17 @@ var Heap = function(fn) {
 };
 
 Heap.prototype = {
+
+  //Intercambiar de posicion los elementos
   swap: function(i, j) {
     this.items[i] = [
       this.items[j],
       this.items[j] = this.items[i]
     ][0];
   },
+  //Reacomoda los indices del array con cada push
   bubble: function(index) {
-    var parent = ~~((index - 1) / 2);
+    var parent = ~~((index - 1) / 2); //Toma el indice menos 1 a la mitad y redondea hacia abajo
     if (this.item(parent) < this.item(index)) {
       this.swap(index, parent);
       this.bubble(parent);
@@ -39,11 +43,12 @@ Heap.prototype = {
       }
     }
   },
+  //Introduce un elemento al array
   push: function() {
     var lastIndex = this.items.length;
     for (var i = 0; i < arguments.length; i++) {
       this.items.push(arguments[i]);
-      this.bubble(lastIndex++);
+      this.bubble(lastIndex++); //Reacomodar los indices
     }
   },
   get length() {
@@ -52,48 +57,64 @@ Heap.prototype = {
 };
 
 var Huffman = {
+  //Crear el arbol
+  //Se maneja como un array tipo Heap
+  //Se define una probabilidad
   encode: function(data) {
     var prob = {};
     var tree = new Heap(function(e) {
       return e[0];
     });
-    for (var i = 0; i < data.length; i++) {
+
+    //Recorre el string para identificar los caracteres y sumar sus frecuencias
+    for (var i = 0; i < data.length; i++) { 
       if (prob.hasOwnProperty(data[i])) {
         prob[data[i]]++;
       } else {
         prob[data[i]] = 1;
       }
     }
-    Object.keys(prob).sort(function(a, b) {
-      return ~~(Math.random() * 2);
+    //Introduce todos los caracteres y sus frecuencias al array
+    Object.keys(prob).sort(function(a, b) { 
+      return ~~(Math.random() * 2); 
     }).forEach(function(e) {
-      tree.push([prob[e], e]);
+      tree.push([prob[e], e]); 
     });
+
     while (tree.length > 1) {
-      var first = tree.pop(),
+      var first = tree.pop(), //Saca los dos ultimos caracteres (de menor valor en la lista)
           second = tree.pop();
-      tree.push([first[0] + second[0], [first[1], second[1]]]);
+      tree.push([first[0] + second[0], [first[1], second[1]]]); //Crea un nodo padre de los ultimos
+      //dos caracters de la lista, este tiene un valor de first + second y tiene a first y second como hijos
     }
+    
+    //Crea un diccionario con los codigos de los caracteres
+    //Toma cada caracter del arbol y lo recorre desde abajo hacia arriba
     var dict = {};
     var recurse = function(root, string) {
       if (root.constructor === Array) {
         recurse(root[0], string + '0');
         recurse(root[1], string + '1');
       } else {
-        dict[root] = string;
-      }
+        dict[root] = string; //Si no encuentra un padre arriba, guarda el string del codigo
+      } 
     };
+
+    //Prepara el codigo binario del output usando el diccionario creado
     tree.items = tree.pop()[1];
     recurse(tree.items, '');
     var result = '';
     for (var i = 0; i < data.length; i++) {
       result += dict[data.charAt(i)];
     }
+    //Prepara el diccionario en el formato codigo ASCII del caracter | codigo binario de huffman - ... 
     var header = Object.keys(dict).map(function(e) {
       return e.charCodeAt(0) + '|' + dict[e];
     }).join('-') + '/';
     return header + result;
   },
+
+
   decode: function(string) {
     string = string.split('/');
     var data = string[1].split(''),
@@ -118,7 +139,7 @@ var Huffman = {
   }
 };
 
-var enc = Huffman.encode('TESTTESTTESTTESTTESTTESTTESTTEST123abc');
+var enc = Huffman.encode('TESTTESTTESTabccccccccccccc');
 log(enc);
 var dec = Huffman.decode(enc);
 log(dec);
