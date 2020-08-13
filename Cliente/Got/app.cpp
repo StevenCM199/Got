@@ -41,14 +41,6 @@ size_t CurlWrite_CallbackFunc_StdString(void* contents, size_t size, size_t nmem
     return newLength;
 }
 
-/***
-*
-* @brief Función para iniciar el cliente, intenta conectarse con el servidor por medio de sockets,
-* al conectarse corre un while que crea la sintaxis "got <comando> <argumento>" para que el cliente pueda escribir los diferentes comandos
-* que se le envian al servidor, <comando> es tomado como el contenido de la variable "commandArray[0]" y <argumento> como "commandArray[1]"
-* se accede a diferentes comportamientos segun el contenido de "commandArray[0]"
-*
-*/
 int main() {
 
     CURL* curl;
@@ -84,6 +76,28 @@ int main() {
         return 1;
     }
     std::cout << "Connected.\n";
+    std::cout << "Ingrese su nombre de usuario: ";
+    std::string username;
+    std::getline(std::cin, username);
+
+
+    curl_global_init(CURL_GLOBAL_ALL);
+    curl = curl_easy_init();
+
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/user");
+        std::string buf("nombre=" + username);
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
+        res = curl_easy_perform(curl);
+
+        if (res != CURLE_OK)
+            fprintf(stderr, "curl_easy_perform() failed: %s\n",
+
+                curl_easy_strerror(res));
+        curl_easy_cleanup(curl);
+    }
+
+    curl_global_cleanup();
 
     while (true) {
         std::cout << "got ";
@@ -101,19 +115,6 @@ int main() {
                 contador++;
             }
         }
-
-        /**
-        Texto que usa el cliente para identificar el comando a ejecutar
-        Lista de comandos admitidos:
-        -> init <nombre>: Crea un nuevo repositorio con el <nombre> asignado y lo guarda en la base de datos
-        -> help
-        -> add <archivo>: Anade el archivo especificado a la lista preparada para subir archivos al repositorio
-        -> commit <nombreCommit>: Sube los archivos anadidos a la lista al repositorio con el nombre que se le haya dado en <nombreCommit>
-        -> status <archivo>: Muestra el historial de cambios del <archivo> especificado, si si <archivo> es vacio, muestra cuales archivos han sido cambiados, modificados o anadidos desde el ultimo commit
-        -> rollback <archivo> <commit>: Devuelve el <archivo> especificado al <commit> especificado
-        -> reset <archivo>: Deshace los cambios locales y regresa el <archivo> al ultimo commit
-        -> sync <archivo>: Recupera los cambios del <archivo> ubicados en el servidor y los aplica al archivo del cliente
-        */
         std::string* commandArray = new std::string[contador + 1];
 
         try {
@@ -135,7 +136,7 @@ int main() {
             nombreRepo = commandArray[1];
 
             if (curl) {
-                curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/init");
+                curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/init");             
                 std::string buf("nombre=" + nombreRepo);
                 //buf += nombreRepo;
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
@@ -168,22 +169,25 @@ int main() {
             std::cout << "got sync <file>: Recupera los cambios para un archivo en el servidor y lo sincroniza con el archivo en el cliente. \n";
         }
         else if (commandArray[0] == "add") {
-
+            std::cout << "Archivos pendientes de commit:" << std::endl;
             // agregar todos los archivos
             if (commandArray[1] == "-A") {
-
+                
                 for (auto& p : fs::recursive_directory_iterator(carpetaActual)) {
                     if (!p.is_directory()) {
-                        listaArchivos->insert(p.path().filename().string());
+                        std::cout << p.path().generic_string() << std::endl;
+                        listaArchivos->insert(p.path().generic_string());
                     }
                 }
             }
             // agrega archivos especificos
             else  if (commandArray[1] != "") {
-                for (int i = 1; i < contador + 1; i++) {
+                for (int i = 1; i < contador+1; i++) {
                     std::string archivo;
-                    archivo = commandArray[i];
-                    listaArchivos->insert(archivo);
+                    archivo = commandArray[i]; // subcarpeta/sub/sub/file.txt
+                    std::string absPath = fs::absolute(archivo).string();
+                    std::cout << absPath << std::endl;
+                    listaArchivos->insert(absPath);
                 }
             }
         }
@@ -205,24 +209,34 @@ int main() {
                     fprintf(stderr, "curl_easy_perform() failed: %s\n",
 
                         curl_easy_strerror(res));
-                curl_easy_cleanup(curl);
+                curl_easy_cleanup(curl);               
             }
 
             curl_global_cleanup();
 
             Sleep(5);
 
-            for (int i = 0; i < listaArchivos->size(); i++) {
-                std::string file = listaArchivos->get_data_by_pos(i);
-                std::string absolutePath = fs::absolute(file).string();
+            for (int i=0; i < listaArchivos->size(); i++) {
+                std::string absolutePath = listaArchivos->get_data_by_pos(i); //file.txt
+                fs::path tmpPath = absolutePath;
+                std::string file = tmpPath.filename().string(); //Cambiar a nombre de archivo
                 absolutePath = absolutePath.substr(absolutePath.find(nameRepo), absolutePath.size());
                 std::string relativePath = fs::path(absolutePath).generic_string();
-                std::ifstream readFile(file);
+                std::ifstream readFile;
                 std::string myText;
+                
+                readFile.open(listaArchivos->get_data_by_pos(i));
 
-                while (std::getline(readFile, myText)) {
+                if (!readFile) {
+                    std::cout << "Unable to open file";
+                    exit(1); // terminate with error
+                }
+
+                while(std::getline(readFile, myText)) {
                     completeText += myText + "\n";
                 }
+
+                readFile.close();
 
                 curl_global_init(CURL_GLOBAL_ALL);
                 curl = curl_easy_init();
@@ -251,14 +265,21 @@ int main() {
             curl_global_init(CURL_GLOBAL_ALL);
             curl = curl_easy_init();
             if (contador + 1 == 1) {
-                std::string file = commandArray[1];
-                std::string absolutePath = fs::absolute(file).string();
-                absolutePath = absolutePath.substr(absolutePath.find(nameRepo), absolutePath.size());
-                std::string relativePath = fs::path(absolutePath).generic_string();
+                lista<std::string>* localPaths = new lista<std::string>();
+                lista<std::string>* remotePaths = new lista<std::string>();
+                for (auto& p : fs::recursive_directory_iterator(carpetaActual)) {
+                    if (!p.is_directory()) {
+                        localPaths->insert(p.path().generic_string());
+                    }
+                }
+     
                 if (curl) {
                     curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/status");
-                    std::string buf("file=" + file + "&" + "absolutePath=" + relativePath);
-                    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
+                    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "");
+
+                    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CurlWrite_CallbackFunc_StdString);
+                    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &serverSync);
+
                     res = curl_easy_perform(curl);
 
                     if (res != CURLE_OK)
@@ -266,6 +287,64 @@ int main() {
 
                             curl_easy_strerror(res));
                     curl_easy_cleanup(curl);
+                }
+
+                std::string elemento = "";
+                for (int i = 0; i < serverSync.size(); i++) {
+                    if (serverSync[i] != '&') {
+                        elemento += serverSync[i];
+                    }
+                    else if (serverSync[i] == '&') {
+                        remotePaths->insert(elemento);
+                        std::string elemento = "";
+                    }
+                }
+
+                for (int j = 0; j < remotePaths->size(); j++) {
+                    std::string actualRemote = remotePaths->get_data_by_pos(j);
+                    std::string remotePath = actualRemote.substr(0, actualRemote.find_first_of(','));
+                    std::string remoteData = actualRemote.substr(actualRemote.find_first_of(','),actualRemote.size()-1);
+
+                    // comparaciones
+                    for (int k = 0; k < localPaths->size(); k++) {
+                        if (localPaths->get_data_by_pos(k).find(remotePath) != std::string::npos) {
+                            std::ifstream readFile(localPaths->get_data_by_pos(k));
+                            std::string myText;
+                            std::string completeText = "";
+
+                            while (std::getline(readFile, myText)) {
+                                completeText += myText + "\n";
+                            }
+                            if (remoteData != completeText) {
+                                std::cout << remotePath + " ha sido modificado" << std::endl;
+                                break;
+                            }
+                        }
+
+                        else if (k == localPaths->size() - 1) {
+                            if (localPaths->get_data_by_pos(k).find(remotePath) == std::string::npos) {
+                                std::cout << remotePath + " ha sido eliminado" << std::endl;
+                            }
+                        }
+                    }
+                }
+
+                for (int k = 0; k < localPaths->size(); k++) {
+
+                    for (int a = 0; a < remotePaths->size(); a++){
+                        std::string actualRemote = remotePaths->get_data_by_pos(a);
+                        std::string remotePath = actualRemote.substr(0, actualRemote.find_first_of(','));
+                        if (localPaths->get_data_by_pos(k).find(actualRemote) != std::string::npos) {                          
+                            break;
+                        }
+                        if (a == remotePaths->size() - 1) {
+                            if (localPaths->get_data_by_pos(k).find(remotePath) == std::string::npos) {
+                                std::cout << localPaths->get_data_by_pos(k) + " ha sido agregado localmente" << std::endl;
+                            }
+
+                        }
+
+                    }
                 }
             }
             else if (contador + 1 == 2) {
@@ -344,12 +423,12 @@ int main() {
                 std::string absolutePath = fs::absolute(file).string();
                 absolutePath = absolutePath.substr(absolutePath.find(nameRepo), absolutePath.size());
                 std::string relativePath = fs::path(absolutePath).generic_string();
-
+                
                 if (curl) {
                     curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/reset");
                     std::string buf("absolutePath=" + relativePath);
                     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
-
+                    
                     /* send all data to this function  */
                     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 
@@ -376,63 +455,63 @@ int main() {
             curl_global_cleanup();
         }
         else if (commandArray[0] == "sync") {
-            std::string nameRepo = carpetaActual.substr(carpetaActual.find_last_of("\\") + 1, carpetaActual.size() - 1);
-            curl_global_init(CURL_GLOBAL_ALL);
-            curl = curl_easy_init();
-            if (contador + 1 == 2) {
-                // recibe nombre del archivo commandArray[1]
-                std::string file = commandArray[1];
-                std::string absolutePath = fs::absolute(file).string();
-                absolutePath = absolutePath.substr(absolutePath.find(nameRepo), absolutePath.size());
-                std::string relativePath = fs::path(absolutePath).generic_string();
-                std::ifstream readFile(file);
-                std::string myText;
-                std::string completeText = "";
+        std::string nameRepo = carpetaActual.substr(carpetaActual.find_last_of("\\") + 1, carpetaActual.size() - 1);
+        curl_global_init(CURL_GLOBAL_ALL);
+        curl = curl_easy_init();
+        if (contador + 1 == 2) {
+            // recibe nombre del archivo commandArray[1]
+            std::string file = commandArray[1];
+            std::string absolutePath = fs::absolute(file).string();
+            absolutePath = absolutePath.substr(absolutePath.find(nameRepo), absolutePath.size());
+            std::string relativePath = fs::path(absolutePath).generic_string();
+            std::ifstream readFile(file);
+            std::string myText;
+            std::string completeText = "";
 
-                if (curl) {
-                    curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/sync");
-                    std::string buf("absolutePath=" + relativePath);
-                    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
+            if (curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3002/sync");
+                std::string buf("absolutePath=" + relativePath);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf.c_str());
 
-                    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CurlWrite_CallbackFunc_StdString);
-                    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &serverSync);
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CurlWrite_CallbackFunc_StdString);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &serverSync);
+                
+                res = curl_easy_perform(curl);
 
-                    res = curl_easy_perform(curl);
+                if (res != CURLE_OK)
+                    fprintf(stderr, "curl_easy_perform() failed: %s\n",
 
-                    if (res != CURLE_OK)
-                        fprintf(stderr, "curl_easy_perform() failed: %s\n",
-
-                            curl_easy_strerror(res));
+                    curl_easy_strerror(res));
                     curl_easy_cleanup(curl);
-                }
-
-
-                while (std::getline(readFile, myText)) {
-                    completeText += myText + "\n";
-                }
-                std::cout << "Archivo local" << std::endl;
-                std::cout << completeText << std::endl;
-
-                std::cout << "Archivo servidor" << std::endl;
-                std::cout << serverSync << std::endl;
-                int saveFile;
-                std::cout << "Digite 1 para conservar version local o 2 para conservar version remota: " << std::endl;
-                std::cin >> saveFile;
-
-                if (saveFile == 1) {
-                    std::ofstream ofs(file, std::ofstream::trunc);
-                    ofs << completeText;
-                    ofs.close();
-                }
-                else if (saveFile == 2) {
-                    std::ofstream ofs(file, std::ofstream::trunc);
-                    ofs << serverSync;
-                    ofs.close();
-                }
-
             }
 
-            curl_global_cleanup();
+
+            while (std::getline(readFile, myText)) {
+                completeText += myText + "\n";
+            }
+            std::cout << "Archivo local" << std::endl;
+            std::cout << completeText << std::endl;
+
+            std::cout << "Archivo servidor" << std::endl;
+            std::cout << serverSync << std::endl;
+            int saveFile;
+            std::cout << "Digite 1 para conservar version local o 2 para conservar version remota: " << std::endl;
+            std::cin >> saveFile;
+
+            if (saveFile == 1) {
+                std::ofstream ofs(file, std::ofstream::trunc);
+                ofs << completeText;
+                ofs.close();
+            }
+            else if (saveFile == 2) {
+                std::ofstream ofs(file, std::ofstream::trunc);
+                ofs << serverSync;
+                ofs.close();
+            }
+
+        }
+
+        curl_global_cleanup();
 
         }
     }
